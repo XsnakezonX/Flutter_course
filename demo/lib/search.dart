@@ -22,7 +22,7 @@ class _SearchScreenState extends State<SearchScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text('Search'),
+        title: Center(child: Text('Search')),
       ),
       body: Column(
         children: [
