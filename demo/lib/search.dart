@@ -19,14 +19,14 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   List<Article> articles = [
     Article(
-        title: 'Article 1',
-        author: 'Amy',
+        title: 'Article 1 Article 1 Article 1 Article 1 Article 1 Article 1',
+        author: 'Amyy',
         source: 'Google',
         publishedAt: 'today',
         url: 'www.abc.com'),
     Article(
-        title: 'Article 2',
-        author: 'Bob',
+        title: 'Article 22',
+        author: 'Bobb',
         source: 'Google',
         publishedAt: 'today',
         url: 'www.abc.com'),
@@ -88,46 +88,49 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Colors.red,
         title: Center(child: Text('Search')),
       ),
-      body: Column(
-        children: [
-          Center(
-              child: Text('News',
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold))),
-          SizedBox(height: 50),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 18),
-              child: TextField(
-                  decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search, color: Colors.black),
-                suffixIcon: Icon(Icons.arrow_forward_ios, color: Colors.black),
-                filled: true,
-                fillColor: Colors.grey,
-                border: const UnderlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-              ))),
-          Expanded(
-              child: ListView.builder(
-                  itemCount: articles.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text('Article $index'),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ArticleScreen(article: articles[index]),
-                          ),
-                        );
-                      },
-                    );
-                  }))
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 50),
+            Text('News',
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold)),
+            SizedBox(height: 50),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 18),
+                child: TextField(
+                    decoration: InputDecoration(
+                  hintText: 'Search',
+                  prefixIcon: Icon(Icons.search, color: Colors.black),
+                  suffixIcon:
+                      Icon(Icons.arrow_forward_ios, color: Colors.black),
+                  filled: true,
+                  fillColor: Colors.grey,
+                  border: const UnderlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                ))),
+            Expanded(
+                child: ListView.builder(
+                    itemCount: articles.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(articles[index].title),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ArticleScreen(article: articles[index]),
+                            ),
+                          );
+                        },
+                      );
+                    }))
+          ],
+        ),
       ),
     );
   }

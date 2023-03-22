@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ArticleScreen extends StatelessWidget {
-  const ArticleScreen({
-    super.key,
-    required article,
-  });
+  ArticleScreen({Key? key, required this.article}) : super(key: key);
+
+  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +16,51 @@ class ArticleScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 50),
-            Text('Article',
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold)),
+            const SizedBox(height: 50),
+            Center(
+                child: Text(article.title,
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold))),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 18),
             ),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text('Title'),
-                        subtitle: Text('Author'),
-                        trailing: Column(
-                          children: [Text('Date'), Text('Date')],
-                        ),
-                      );
-                    })),
-            Text('This article is of source x'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Author'),
+                Text('Date'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(article.author),
+                Text(article.publishedAt),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Text('This article is brought to you by ${article.source}'),
+            const SizedBox(height: 20),
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                // a rounded button
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                  ),
+                  child: Text(
+                    'Click here to Read more',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
