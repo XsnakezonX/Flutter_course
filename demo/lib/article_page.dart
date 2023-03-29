@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:demo/article.dart';
 
 class ArticleScreen extends StatelessWidget {
   ArticleScreen({Key? key, required this.article}) : super(key: key);
